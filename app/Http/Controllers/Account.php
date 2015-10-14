@@ -84,24 +84,29 @@ class Account extends Controller
         //
     }
 
-    public function objective()
+    public function login()
+    {
+
+    }
+
+    public function post_login()
+    {
+
+    }
+
+    public function register()
+    {
+
+    }
+
+    public function post_register()
+    {
+
+    }
+
+    public function logout()
     {
         
-    }
-
-    public function about()
-    {
-
-    }
-
-    public function donate()
-    {
-
-    }
-
-    public function contact()
-    {
-
-    }
+    }    
 
 }

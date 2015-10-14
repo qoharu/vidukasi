@@ -99,19 +99,24 @@ class User extends Controller
 
     }
 
+    public function post_upload()
+    {
+
+    }
+
     public function myvideos()
     {
 
     }
 
-    public function notification()
+    public function notifications()
     {
 
     }
 
     public function messages()
     {
-        
+
     }
 
 }

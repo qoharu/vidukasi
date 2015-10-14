@@ -84,29 +84,24 @@ class Home extends Controller
         //
     }
 
-    public function login()
+    public function objective()
     {
-
+        echo "Tujuan";
     }
 
-    public function post_login()
+    public function about()
     {
-
+        echo "Tentang";
     }
 
-    public function register()
+    public function donate()
     {
-
+        echo "Donasi";
     }
 
-    public function post_register()
+    public function contact()
     {
-
-    }
-
-    public function logout()
-    {
-        
+        echo "Kontak";
     }
 
 }
