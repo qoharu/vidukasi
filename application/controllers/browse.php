@@ -7,8 +7,7 @@ class Browse extends CI_Controller {
 	}
 	
 	public function video($coba){
-		echo "$coba";
-		echo CI_VERSION;
+		echo $coba;
 	}
 
 	public function profil(){
