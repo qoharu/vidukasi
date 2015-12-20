@@ -1,0 +1,28 @@
+HTML
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<div class="g-recaptcha" data-sitekey="6LetdxMTAAAAACM1O0fGmoOV4vSQa5rTz-Z0dfdp"></div>
+
+JAVASCRIPT
+recaptcha	: grecaptcha.getResponse()
+
+
+PHP
+$secret = "6LetdxMTAAAAAJH82FvsS9eL5kHoHQ3Vl1c7uN-i";
+		$response = $this->input->post('recaptcha');
+		$postdata = http_build_query(
+    		array(
+        		'secret' => $secret,
+        		'response' => $response,
+        		'remoteip' => $_SERVER["REMOTE_ADDR"]
+   	 		)
+		);
+		$opts = array('http' =>
+		    array(
+		        'method'  => 'POST',
+		        'header'  => 'Content-type: application/x-www-form-urlencoded',
+		        'content' => $postdata
+		    )
+		);
+		$context  = stream_context_create($opts);
+		$captcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context), true);

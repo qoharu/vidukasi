@@ -7,6 +7,6 @@ class Video extends CI_Controller {
 	}
 	
 	public function view($category,$videoid){
-
+		
 	}
 }

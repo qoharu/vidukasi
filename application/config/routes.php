@@ -14,11 +14,11 @@ $route['kontak'] = 'home/kontak';
 
 
 //account
-$route['masuk'] = 'account/masuk';
-$route['daftar'] = 'account/daftar';
+$route['login'] = 'account/login';
+$route['register'] = 'account/register';
 $route['logout'] = 'account/logout';
 
 //browse
 $route['browse/(:any)'] = 'browse/video/$1';
-$route['profil'] = 'browse/profil';
-$route['pages'] = 'browse/pages';
+$route['profil/(:any)'] = 'browse/profil';
+$route['pages/(:any)'] = 'browse/pages';

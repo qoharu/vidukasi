@@ -7,12 +7,15 @@ class Account_model extends CI_Model
 	
 
 	function validate($data){
-		$password=md5($data['password']);
-		$query="select * from user where email='$data[email]' and password='$password' ";
+		$password=$data['password'];
+		$query="select user_id,username,level_name 
+				from user,user_level
+				where user.username='$data[username]' 
+					and user.password='$password' 
+					and user_level.level_id = user.level ";
 		$db=$this->db->query($query);
 		if($db->num_rows()==1){
 			$data=$db->row();
-			$admin = false;
 			$this->setsession($data);
 			return true;
 		}else{
@@ -22,24 +25,56 @@ class Account_model extends CI_Model
 
 
 	function setsession($data){
-		switch ($data['level']) {
-			case '1':
-				$data['level'] = 'superadmin';
-				break;
-			case '2':
-				$data['level'] = 'adminfaskes';
-				break;
-			case '3':
-				$data['level'] = 'adminbpjs';
-				break;
+		$sesi = array(	'uid' => $data->user_id,
+					  	'username' => $data->username,
+					  	'level' => $data->level_name,
+					  	'isLogin' => FALSE
+					  	);
+		$this->session->set_userdata($session);
+	}
+
+	function checkaccount($type,$name){
+		if ($type=='username') {
+			$query="select username
+					from user
+					where user.username='$name'";
+		}else{
+			$query="select email
+					from user
+					where user.email='$name'";
+		}
+		$db=$this->db->query($query);
+		if ($db->num_rows() >=1 ) {
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	function register($data){
+		$fullname = $data['fullname'];
+		$email = $data['email'];
+		$username = $data['username'];
+		$password = $data['password'];
+		// $this->db->query("BEGIN");
+		$query = "INSERT INTO user(username,password,email) VALUES('$username','$password','$email')";
+		
+		// $this->db->query($query);
+		// $query = "SELECT LAST_INSERT_ID() as A";
+		// $lastid = $this->db->query($query)->row()->A;
+		// echo $lastid;
+		// $query = "INSERT INTO profile(fullname,user_id) VALUES('$fullname',$lastid)";
+	  	$this->db->query($query);
+	  	$lastid = $this->db->insert_id();
+		$query1 = "INSERT INTO profile(fullname,user_id) VALUES('$fullname','$lastid')";
+
+		if ($this->db->query($query1)) {
+			return true;
+		}else{
+			return false;
 		}
 
-		
 	}
 
 	
 }
-
-
-
-?>
