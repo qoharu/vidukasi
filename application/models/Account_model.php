@@ -30,7 +30,7 @@ class Account_model extends CI_Model
 					  	'level' => $data->level_name,
 					  	'isLogin' => FALSE
 					  	);
-		$this->session->set_userdata($session);
+		$this->session->set_userdata($sesi);
 	}
 
 	function checkaccount($type,$name){
