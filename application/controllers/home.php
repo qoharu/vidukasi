@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
 	public function index(){
-		echo "home index";
+		$this->load->view('home');
 	}
 
 	public function tujuan(){

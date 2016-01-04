@@ -8,5 +8,8 @@ class Video extends CI_Controller {
 	
 	public function view($category,$videoid){
 		
+		$message = $this->Video_model->view($videoid);
+		echo json_encode($message);
+
 	}
 }
