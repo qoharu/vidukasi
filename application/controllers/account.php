@@ -14,14 +14,14 @@ class Account extends CI_Controller {
 	}
 
 	public function login_post(){
-		$ref = @$this->input->get('ref');
+		$ref = site_url('browse');
 		$data['username'] = $this->input->post('username');
 		$data['password'] = sha1($this->input->post('password'));
 		$validasi = $this->Account_model->validate($data);
 		if ($validasi) {
 			$message['ref'] = $ref;
 			if (empty($ref)) {
-				$message['ref'] = site_url('home');
+				$message['ref'] = site_url('browse');
 			}
 			$message['status'] = 'true';
 			$message['message'] = "Login berhasil";
@@ -55,6 +55,7 @@ class Account extends CI_Controller {
 				if ($registered) {
 					$message['message'] = 'Register Success';
 					$message['status'] = true;
+					$message['ref'] = site_url('login');
 				}else{
 					$message['message'] = 'Register Failure';
 					$message['status'] = false;
@@ -69,7 +70,6 @@ class Account extends CI_Controller {
 			$message['message'] = 'wrong captcha';
 		}
 		echo json_encode($message);
-
 
 	}
 

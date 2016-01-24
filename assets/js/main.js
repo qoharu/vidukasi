@@ -12,5 +12,4 @@ $(document).ready(function(){
 		$('#notif').fadeIn().delay(3000).fadeOut();
 	}
 
-
 });
