@@ -45,7 +45,7 @@
                 <div class="col-sm-12 carousel-caption blank">
                     <center><h1>Temui Guru Keduamu</h1>
                     <p>Belajar sungguh-sungguh, dari jauh</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Yuk Belajar!</a></p></center>
+                    <p><button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#modalgrade" role="button">Yuk Belajar!</button></p></center>
                 </div> 
             </div>
             <!-- Set background for slide in css -->
@@ -239,6 +239,21 @@
     </div>
 </section>
 
+<div class="modal inmodal fade" id="modalgrade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Pilih kelas</h4>
+            </div>
+            <div class="modal-body">
+                <a class="btn btn-danger  btn-lg" type="button" href="<?php echo site_url('browse/index/sd') ?>">SD</a>
+                <a class="btn btn-success  btn-lg" type="button" href="<?php echo site_url('browse/index/smp') ?>">SMP</a>
+                <a class="btn btn-default  btn-lg" type="button" href="<?php echo site_url('browse/index/sma') ?>">SMA</a>
+            </div>
+        </div>
+    </div>
+
 <script src="<?php echo base_url('assets/js/jquery-2.1.1.js') ?> "></script>
 <script src="<?php echo base_url('assets/js/pace.min.js') ?> "></script>
 <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?> "></script>
@@ -246,5 +261,6 @@
 <script src="<?php echo base_url('assets/js/cbpAnimatedHeader.js') ?> "></script>
 <script src="<?php echo base_url('assets/js/wow.min.js') ?> "></script>
 <script src="<?php echo base_url('assets/js/inspinia.js') ?> "></script>
+
 </body>
 </html>
