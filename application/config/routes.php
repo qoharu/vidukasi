@@ -7,18 +7,18 @@ $route['404_override'] = 'halaman404';
 $route['translate_uri_dashes'] = FALSE;
 
 //home
-$route['tujuan'] = 'home/tujuan';
-$route['tentang'] = 'home/tentang';
-$route['donasi'] = 'home/donasi';
-$route['kontak'] = 'home/kontak';
+$route['tujuan'] = 'Home/tujuan';
+$route['tentang'] = 'Home/tentang';
+$route['donasi'] = 'Home/donasi';
+$route['kontak'] = 'Home/kontak';
 
 
 //account
-$route['login'] = 'account/login';
-$route['register'] = 'account/register';
-$route['logout'] = 'account/logout';
+$route['login'] = 'Account/login';
+$route['register'] = 'Account/register';
+$route['logout'] = 'Account/logout';
 
 //browse
-$route['browse/(:any)'] = 'browse/video/$1';
-$route['profil/(:any)'] = 'browse/profil';
-$route['pages/(:any)'] = 'browse/pages';
+$route['browse/(:any)'] = 'Browse/video/$1';
+$route['profil/(:any)'] = 'Browse/profil';
+$route['pages/(:any)'] = 'Browse/pages';
